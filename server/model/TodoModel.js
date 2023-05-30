@@ -28,14 +28,10 @@ const _findEntry = (id) => {
 };
 
 export const addTodo = async (todo) => {
-  const newTodo = { ...todo, id: _getTodoById };
+  const newTodo = { ...todo, id: _getTodoById() };
   todos.push(newTodo);
   await _saveTodo();
   return newTodo;
-};
-
-export const getOneTodo = (id) => {
-  return _findEntry;
 };
 
 export const updateTodo = async (id, todo) => {

@@ -1,5 +1,5 @@
 import express from "express";
-import { addTodo, deleteTodo } from "./model/TodoModel.js";
+import { addTodo, deleteTodo, updateTodo } from "./model/TodoModel.js";
 import cors from "cors";
 
 const app = express();
@@ -21,8 +21,8 @@ app.post("/todos", async (req, res) => {
 app.put("/todos/:id", async (req, res) => {
   const { id } = req.params;
   const todo = req.body;
-  const updateTodo = await updateTodo(id, todo);
-  res.send(updateTodo);
+  const updatedTodo = await updateTodo(id, todo);
+  res.send(updatedTodo);
 });
 
 app.delete("/todos/:id", async (req, res) => {
